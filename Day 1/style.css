@@ -1,0 +1,23 @@
+body { 
+    background-color: rgb(246, 176, 246);
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+} 
+
+h1 {
+    font-size: 50px;
+    justify-content: center;
+ 
+
+} 
+
+.button { 
+    color: white;
+
+}
+
+#plusplus { 
+    background: rgb(251, 232, 54);
+    padding: 15px;
+}
