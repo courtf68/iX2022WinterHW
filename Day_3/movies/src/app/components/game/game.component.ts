@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Submit } from 'src/app/models/game';
+import { Movie, movieList, Submit } from 'src/app/models/game';
 
 @Component({
   selector: 'app-game',
@@ -7,20 +7,46 @@ import { Submit } from 'src/app/models/game';
   styleUrls: ['./game.component.css']
 })
 export class GameComponent implements OnInit {
-  constructor() { }
-  ngOnInit(): void {
+  
+  submit: Submit = new Submit();
+  randoMovie:  Movie = new Movie();
+  show: boolean = false;
+  guess: Movie = new Movie();
+  answer?: string;
+
+  movies = movieList;
+  
+  
+  constructor() {}
+
+  getRandoMovie() { 
+  return this.movies[Math.floor(Math.random() * movieList.length)];
   }
 
-  submit: Submit = new Submit(); 
+  ngOnInit(): void {
+    this.randoMovie = this.getRandoMovie();
+  }
 
 
-  // prob need array for hints
- // hints: 
  
-  
+ 
+
   submission(){ 
   //if input == true (matches matching string in array?) when submit is hit then refresh and new hint appear  
-      this.submit = new Submit() //or need new function?
-    //if input == false, make text bar empty until it is correct
+  if (this.guess.name?.toLowerCase() === this.randoMovie.name?.toLowerCase() ) {
+  this.answer = 'correct';
+  this.guess = new Movie();
+
+   }
+   else { 
+     this.answer = 'not correct!';
+    
+   }
+   this.answer = ' ';
+   this.randoMovie = this.getRandoMovie();
+  }
+
+hint() { 
+  this.show = !this.show;
   }
 }

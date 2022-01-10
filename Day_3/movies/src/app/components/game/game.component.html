@@ -4,54 +4,35 @@
         <h5 class="card-title text-center">Badly explained movies</h5>
   
         <hr />
-        <h5 class = "card-title text-center">Fill field</h5>
+
+        <h5 class = "card-title text-center">{{this.randoMovie.explanation}}</h5>
+
         <hr />
-        <label for="name" class="form-label"> </label>
+        <label for="name" class="form-label"> </label> <!--see if necessary-->
       <div class="input-group mb-3">
         <input
           type="text"
           class="form-control"
-          id="enter guess here" 
-        
-        /> 
-        <!-- once server works, other option for input-->
-        <!--input type="email" class="form-control" id="exampleGuess" aria-describedby="guessPlacement" placeholder="Enter guess here"-->
-      </div>
+          placeholder="Enter guess here"
+          id="typing"  [(ngModel)]="guess.name" 
+        > 
+        </div>
 
 
       <div class="row">
         <div class="col text-center">
           <button type="button" (click)="submission()" class="btn btn-primary">Submit</button>
+          <h3 class="text-center">{{this.answer}}</h3>
+      </div>
           <hr />
-         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
-        Show Hint
-        </button>
-        </div>
-      </div> 
 
+          <div class="text-center">
 
-      <!-- addition of the hint modal-->
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Hint!</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p> 
-          <!--hint text/array here -> matching w prompt-->
-        </p>>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
+            <button type="button" (click)="hint()" class="btn btn-secondary">Hint</button>
+        
+           </div> 
+           <h3 *ngIf="show" class="text-center pt-5">{{this.randoMovie.hint}}</h3>
+   </div>
+ </div>
+</div>
 </div>
