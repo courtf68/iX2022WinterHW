@@ -44,6 +44,7 @@ export class GameComponent implements OnInit {
    }
    this.answer = ' ';
    this.randoMovie = this.getRandoMovie();
+   this.show = false;
   }
 
 hint() { 
